@@ -8,11 +8,12 @@ class CallResult
     /** @var array<int,mixed> */
     public $arguments;
 
-    /** @var array */
+    /** @var array<string,mixed> */
     public $argumentsKw;
 
     /**
      * @param array<int,mixed> $arguments
+     * @param array<string,mixed> $argumentsKw
      */
     function __construct(array $arguments, array $argumentsKw) {
         $this->arguments = $arguments;
