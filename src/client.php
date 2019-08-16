@@ -138,6 +138,7 @@ class Client
 
         // TODO instead of number of tries have timeout as socket may have different timeouts
         $tries = 10;
+        $msg = '';
 
         while ($tries > 0) {
             $tries--;
@@ -203,7 +204,7 @@ class Client
      */
     public function callArguments(string $uri, array $arguments = [], array $argumentsKw = [], array $options = []): array
     {
-        return $this->call($uri, $arguments, $argumentsKw, $options)['arguments'];
+        return $this->call($uri, $arguments, $argumentsKw, $options)->arguments;
     }
 
     /**
@@ -211,7 +212,7 @@ class Client
      */
     public function callArgumentsKw(string $uri, array $arguments = [], array $argumentsKw = [], array $options = []): array
     {
-        return $this->call($uri, $arguments, $argumentsKw, $options)['argumentsKw'];
+        return $this->call($uri, $arguments, $argumentsKw, $options)->argumentsKw;
     }
 
     /**
@@ -220,7 +221,7 @@ class Client
      */
     public function callValue(string $uri, array $arguments = [], array $argumentsKw = [])
     {
-        return $this->call($uri, $arguments, $argumentsKw)['arguments'][0] ?? null;
+        return $this->call($uri, $arguments, $argumentsKw)->arguments[0] ?? null;
     }
 
     /**
@@ -262,7 +263,7 @@ class Client
     }
 
     /**
-     * @return array{id:int,created:string,uri:string,match:string,invoke:string)
+     * @return array{id:int,created:string,uri:string,match:string,invoke:string}
      */
     public function getRegistration(int $id): array
     {

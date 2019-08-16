@@ -23,6 +23,8 @@
   },
   "archive": {
     "exclude": [
+      ".phan/",
+      "vendor/",
       ".gitignore"
     ]
   }
