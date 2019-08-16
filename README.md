@@ -1,5 +1,5 @@
 # WampSyncClient
-Synchronous PHP client for WAMP protocol
+Synchronous (blocking) PHP client for WAMP protocol implementing Caller and Publisher roles
 
 ## Quickstart
 
