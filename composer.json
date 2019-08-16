@@ -18,7 +18,12 @@
   },
   "autoload": {
     "psr-4": {
-      "JSzczypk\\WampSyncClient\\": ""
+      "JSzczypk\\WampSyncClient\\src": ""
     }
+  },
+  "archive": {
+    "exclude": [
+      ".gitignore"
+    ]
   }
 }
