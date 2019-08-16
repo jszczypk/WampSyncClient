@@ -162,6 +162,8 @@ class Client
     }
 
     /**
+     * @params array<int,mixed> $arguments
+     * @params array<string,mixed> $argumentsKw
      * @params array{receive_progress?:bool,timeout?:int,disclose_me?:bool} $options
      * TODO we do not support options.runmode == 'partition' and options.rkey == mixed
      * @return \JSzczypk\WampSyncClient\CallResult
@@ -195,7 +197,7 @@ class Client
 
         // TODO support progressive results
 
-        return new CallResult($msg[3], $msg[4]);
+        return new CallResult($msg[3] ?? [], $msg[4] ?? []);
 
     }
 
