@@ -201,7 +201,7 @@ class Client
 
     /**
      * @params array{receive_progress?:bool,timeout?:int,disclose_me?:bool} $options
-     * @return array<int:mixed>
+     * @return array<int,mixed>
      */
     public function callArguments(string $uri, array $arguments = [], array $argumentsKw = [], array $options = []): array
     {
@@ -210,7 +210,7 @@ class Client
 
     /**
      * @params array{receive_progress?:bool,timeout?:int,disclose_me?:bool} $options
-     * @return array<string:mixed>
+     * @return array<string,mixed>
      */
     public function callArgumentsKw(string $uri, array $arguments = [], array $argumentsKw = [], array $options = []): array
     {

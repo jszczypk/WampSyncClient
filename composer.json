@@ -16,6 +16,9 @@
     "php": ">=7.2.0",
     "textalk/websocket": "^1.0"
   },
+  "require-dev": {
+    "phan/phan": "^2.0"
+  },
   "autoload": {
     "psr-4": {
       "JSzczypk\\WampSyncClient\\": "src/"
@@ -27,5 +30,8 @@
       "vendor/",
       ".gitignore"
     ]
+  },
+  "scripts": {
+      "test": "composer validate; vendor/bin/phan"
   }
 }
