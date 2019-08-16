@@ -3,7 +3,16 @@ Synchronous PHP client for WAMP protocol
 
 ## Quickstart
 
+Anonymous access
+
 ```
-$wamp = new \SmartB2B\Wamp\Client("ws://wamprouter.domain.com:8080/", "myrealm", "user", "password");
-$result = $wamp->call('com.domain.add', [1, 2]);
+$wamp = new \JSzczypk\WampSyncClient\Client("ws://127.0.0.1:9000/", "realm");
+$result = $wamp->call('com.myapp.add2', [2, 3]);
+```
+
+With ticket or WAMP-CRA authentication
+
+```
+$wamp = new \JSzczypk\WampSyncClient\Client("ws://127.0.0.1:9000/", "realm", "user", "password");
+$result = $wamp->call('com.myapp.add2', [2, 3]);
 ```

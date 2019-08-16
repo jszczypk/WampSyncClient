@@ -1,6 +1,6 @@
 <?php
 
-namespace SmartB2B\Wamp;
+namespace JSzczypk\WampSyncClient;
 
 class Client 
 {
