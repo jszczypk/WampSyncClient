@@ -1,0 +1,24 @@
+{
+  "name": "jszczypk/wampsyncclient",
+  "description": "Synchronous (blocking) PHP client for WAMP protocol with Caller and Publisher roles",
+  "type": "library",
+  "keywords": [ "wamp", "rpc" ],
+  "time": "2019-08-16",
+  "license": "LGPL-3.0-or-later",
+  "authors": [
+    {
+      "name": "Janusz Szczypka",
+      "email": "janusz@smartb2b.eu",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": ">=7.2.0",
+    "textalk/websocket": "^1.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "JSzczypk\\WampSyncClient\\": ""
+    }
+  }
+}
