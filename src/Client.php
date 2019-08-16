@@ -195,7 +195,7 @@ class Client
 
         // TODO support progressive results
 
-        return new CallResult($arguments, $argumentsKw);
+        return new CallResult($msg[3], $msg[4]);
 
     }
 
