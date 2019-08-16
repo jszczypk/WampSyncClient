@@ -18,7 +18,7 @@
   },
   "autoload": {
     "psr-4": {
-      "JSzczypk\\WampSyncClient\\src\\": ""
+      "JSzczypk\\WampSyncClient\\": "src/"
     }
   },
   "archive": {
