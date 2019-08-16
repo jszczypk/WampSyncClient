@@ -163,9 +163,9 @@ class Client
     /**
      * @params array{receive_progress?:bool,timeout?:int,disclose_me?:bool} $options
      * TODO we do not support options.runmode == 'partition' and options.rkey == mixed
-     * @return array{arguments:array,argumentsKw:array}
+     * @return \JSzczypk\WampSyncClient\CallResult
      */
-    public function call(string $uri, array $arguments = [], array $argumentsKw = [], array $options = []): array
+    public function call(string $uri, array $arguments = [], array $argumentsKw = [], array $options = []): CallResult
     {
 
         if (count($argumentsKw)) {
@@ -194,10 +194,7 @@ class Client
 
         // TODO support progressive results
 
-        return [
-            'arguments' => $msg[3] ?? [],
-            'argumentsKw' => $msg[4] ?? [],
-        ];
+        return new CallResult($arguments, $argumentsKw);
 
     }
 
