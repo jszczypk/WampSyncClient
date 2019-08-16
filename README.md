@@ -3,7 +3,10 @@ Synchronous (blocking) PHP client for WAMP protocol implementing Caller and Publ
 
 ## Quickstart
 
-Anonymous access
+Installation
+```composer require jszczypk/wampsyncclient```
+
+Anonymous connections
 
 ```
 $wamp = new \JSzczypk\WampSyncClient\Client("ws://127.0.0.1:9000/", "realm");
