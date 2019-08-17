@@ -3,7 +3,6 @@
   "description": "Synchronous (blocking) PHP client for WAMP protocol implementing Caller and Publisher roles",
   "type": "library",
   "keywords": [ "wamp", "rpc" ],
-  "time": "2019-08-16",
   "license": "LGPL-3.0-or-later",
   "authors": [
     {
