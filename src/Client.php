@@ -223,9 +223,9 @@ class Client
      * @params array{receive_progress?:bool,timeout?:int,disclose_me?:bool} $options
      * @return ?mixed
      */
-    public function callValue(string $uri, array $arguments = [], array $argumentsKw = [])
+    public function callValue(string $uri, array $arguments = [], array $argumentsKw = [], array $options = [])
     {
-        return $this->call($uri, $arguments, $argumentsKw)->arguments[0] ?? null;
+        return array_shift($this->call($uri, $arguments, $argumentsKw, $options)->arguments);
     }
 
     /**
