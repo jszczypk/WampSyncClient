@@ -50,11 +50,11 @@ class Client
         // TODO later check if we have msgpack PECL extension
 
         $options = [
-            'headers' => [ 'sec-websocket-protocol' => static::PROTOCOL_WAMP_2_JSON /* .' '.static::PROTOCOL_WAMP_2_MSGPACK */ ],
+            'headers' => [ 'Sec-WebSocket-Protocol' => static::PROTOCOL_WAMP_2_JSON /* .' '.static::PROTOCOL_WAMP_2_MSGPACK */ ],
             'timeout' => $this->socketTimeout
         ];
 
-        $this->ws = new \WebSocket\Client($websocketUri, $options);
+        $this->ws = new \JSzczypk\WebSocket\Client($websocketUri, $options);
 
         // TODO for now we support only one protocol so we assume this is the only one, later we should read it from websocket protocol negotiations
         $this->protocol = static::PROTOCOL_WAMP_2_JSON;
@@ -145,7 +145,7 @@ class Client
             try {
                 $msg = $this->ws->receive();
                 break;
-            } catch (\WebSocket\ConnectionException $e) {
+            } catch (\JSzczypk\WebSocket\ConnectionException $e) {
                 if ($tries == 0) throw $e;
             }
         }

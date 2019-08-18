@@ -13,7 +13,7 @@
   ],
   "require": {
     "php": ">=7.2.0",
-    "textalk/websocket": "^1.0"
+    "jszczypk/websocket": "^1.0.3"
   },
   "require-dev": {
     "phan/phan": "^2.2"
