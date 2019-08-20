@@ -2,7 +2,7 @@
 
 namespace JSzczypk\WampSyncClient;
 
-class Client 
+class Client
 {
 
     const MESSAGE_HELLO = 1;
@@ -42,7 +42,7 @@ class Client
     /**
      * @param string|callable(string,string,mixed):string $authSecret
      */
-    public function __construct(string $websocketUri, string $realm, string $authId = null, $authSecret = null) 
+    public function __construct(string $websocketUri, string $realm, string $authId = null, $authSecret = null)
     {
 
         $this->realm = $realm;
@@ -84,7 +84,7 @@ class Client
             if (is_callable($authSecret)) {
                 $authSecret = call_user_func($authSecret, $msg[1], $msg[2]);
             }
-            switch($msg[1]) {
+            switch ($msg[1]) {
                 case static::AUTHENTICATION_TICKET:
                     $this->send(static::MESSAGE_AUTHENTICATE, $authSecret, (object) []);
                     break;
@@ -95,14 +95,13 @@ class Client
             $msg = $this->receive();
 
             if ($msg[0] == static::MESSAGE_ABORT) {
-                switch($msg[2]) {
+                switch ($msg[2]) {
                     case 'wamp.error.not_authorized':
                         throw new Exception($msg[1]['message']);
                 }
                 //var_dump($msg);
                 throw new Exception("Unexpected ABORT message: {$msg[2]}.");
             }
-
         }
 
         if ($msg[0] != static::MESSAGE_WELCOME) {
@@ -114,10 +113,9 @@ class Client
         $this->authId = $msg[2]['authid'];
         $this->authRole = $msg[2]['authrole'];
         // TODO save some more info from WELCOM like broker/dealer features
-
     }
 
-    function __destruct()
+    public function __destruct()
     {
         $this->send(static::MESSAGE_GOODBYE, (object) [], 'wamp.close.close_realm');
         $msg = $this->receive();
@@ -127,7 +125,7 @@ class Client
     {
         if ($this->protocol == static::PROTOCOL_WAMP_2_JSON) {
             //$this->ws->send(json_encode([ $messageType, ...$params ])); // PHP 7.4
-            $this->ws->send(json_encode(array_merge([ $messageType ], $params )));
+            $this->ws->send(json_encode(array_merge([ $messageType ], $params)));
         } else {
             throw new Exception("Unsupported protocol $this->protocol");
         }
@@ -146,7 +144,9 @@ class Client
                 $msg = $this->ws->receive();
                 break;
             } catch (\JSzczypk\WebSocket\ConnectionException $e) {
-                if ($tries == 0) throw $e;
+                if ($tries == 0) {
+                    throw $e;
+                }
             }
         }
 
@@ -182,7 +182,7 @@ class Client
         $msg = $this->receive();
 
         if ($msg[0] == static::MESSAGE_ERROR) {
-            switch($msg[4]) {
+            switch ($msg[4]) {
                 case 'wamp.error.invalid_uri':
                 case 'wamp.error.no_such_procedure':
                     throw new Exception($msg[5][0]);
@@ -198,7 +198,6 @@ class Client
         // TODO support progressive results
 
         return new CallResult($msg[3] ?? [], $msg[4] ?? []);
-
     }
 
     /**
@@ -254,7 +253,6 @@ class Client
                 throw new Exception("Unexpected message type {$msg[0]}.");
             }
         }
-
     }
 
     /**
@@ -280,8 +278,6 @@ class Client
         // TODO check if dealer had feature registration_meta_api
         return (bool) $this->callArguments('wamp.registration.lookup', [ $uri ])[0];
     }
-
 }
 
 // vim: tabstop=4 shiftwidth=4 expandtab
-

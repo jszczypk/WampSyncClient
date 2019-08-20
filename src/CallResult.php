@@ -2,7 +2,7 @@
 
 namespace JSzczypk\WampSyncClient;
 
-class CallResult 
+class CallResult
 {
 
     /** @var array<int,mixed> */
@@ -15,13 +15,11 @@ class CallResult
      * @param array<int,mixed> $arguments
      * @param array<string,mixed> $argumentsKw
      */
-    function __construct(array $arguments, array $argumentsKw) {
+    public function __construct(array $arguments, array $argumentsKw)
+    {
         $this->arguments = $arguments;
         $this->argumentsKw = $argumentsKw;
     }
-
 }
 
 // vim: tabstop=4 shiftwidth=4 expandtab
-
-
