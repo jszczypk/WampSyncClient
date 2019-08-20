@@ -16,7 +16,8 @@
     "jszczypk/websocket": "^1.0.4"
   },
   "require-dev": {
-    "phan/phan": "^2.2"
+    "phan/phan": "^2.2",
+    "squizlabs/php_codesniffer": "^3.4"
   },
   "autoload": {
     "psr-4": {
@@ -33,7 +34,11 @@
   "scripts": {
       "test": [
           "composer validate",
-          "vendor/bin/phan"
+          "vendor/bin/phan",
+	  "vendor/bin/phpcs --standard=PSR2 --warning-severity=0 src"
+      ],
+      "fix": [
+        "vendor/bin/phpcbf --standard=PSR2 src"
       ]
   }
 }
