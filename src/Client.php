@@ -188,7 +188,8 @@ class Client
                     throw new Exception($msg[5][0]);
             }
             //var_dump($msg);
-            throw new Exception("Invocation error: {$msg[4]}");
+            //throw new Exception("Invocation error: {$msg[4]}");
+            throw new InvocationException($msg[4], $msg[5] ?? [], $msg[6] ?? [], $msg[3]);
         }
 
         if ($msg[0] != static::MESSAGE_RESULT) {
