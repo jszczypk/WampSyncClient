@@ -17,8 +17,8 @@ class InvocationException extends Exception
     public function __construct(string $uri, array $arguments = [], array $argumentsKw = [], array $details = null)
     {
 
-        if (count($arguments) == 1 && is_string($arguments[1])) {
-            $errorMessage = $arguments[1];
+        if (count($arguments) == 1 && is_string($arguments[0])) {
+            $errorMessage = $arguments[0];
         } else {
             $errorMessage = $uri;
         }
