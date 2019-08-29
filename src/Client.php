@@ -184,8 +184,9 @@ class Client
         if ($msg[0] == static::MESSAGE_ERROR) {
             switch ($msg[4]) {
                 case 'wamp.error.invalid_uri':
+                    throw new InvalidURIException($msg[5][0]);
                 case 'wamp.error.no_such_procedure':
-                    throw new Exception($msg[5][0]);
+                    throw new NoSuchProcedureException($msg[5][0]);
             }
             //var_dump($msg);
             //throw new Exception("Invocation error: {$msg[4]}");
