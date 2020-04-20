@@ -117,8 +117,12 @@ class Client
 
     public function __destruct()
     {
-        $this->send(static::MESSAGE_GOODBYE, (object) [], 'wamp.close.close_realm');
-        $msg = $this->receive();
+        try {
+            $this->send(static::MESSAGE_GOODBYE, (object) [], 'wamp.close.close_realm');
+            $msg = $this->receive();
+        } catch (\Throwable $e) {
+            // No-op
+        }
     }
 
     protected function send(int $messageType, ...$params): void
