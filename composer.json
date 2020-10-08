@@ -1,5 +1,5 @@
 {
-  "name": "bkwtools/wampsyncclient",
+  "name": "bkwatch/wampsyncclient",
   "description": "Synchronous (blocking) PHP client for WAMP protocol implementing Caller and Publisher roles",
   "type": "library",
   "keywords": [ "wamp", "rpc" ],
