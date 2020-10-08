@@ -24,6 +24,10 @@
     "phan/phan": "^2.2",
     "squizlabs/php_codesniffer": "^3.4"
   },
+  "repositories" : {
+    "type" : "vcs",
+    "url" : "git@github.com:BKWatch/WebSocket"
+  },
   "autoload": {
     "psr-4": {
       "BKWTools\\WampSyncClient\\": "src/"
