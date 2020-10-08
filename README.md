@@ -4,19 +4,19 @@ Synchronous (blocking) PHP client for WAMP protocol implementing Caller and Publ
 ## Quickstart
 
 Installation
-```composer require jszczypk/wampsyncclient```
+```composer require bkwtools/wampsyncclient```
 
 Anonymous connections
 
 ```
-$wamp = new \JSzczypk\WampSyncClient\Client("ws://127.0.0.1:9000/", "realm");
+$wamp = new \BKWTools\WampSyncClient\Client("ws://127.0.0.1:9000/", "realm");
 $result = $wamp->call('com.myapp.add2', [2, 3]);
 ```
 
 With ticket or WAMP-CRA authentication
 
 ```
-$wamp = new \JSzczypk\WampSyncClient\Client("ws://127.0.0.1:9000/", "realm", "user", "password");
+$wamp = new \BKWTools\WampSyncClient\Client("ws://127.0.0.1:9000/", "realm", "user", "password");
 $result = $wamp->call('com.myapp.add2', [2, 3]);
 ```
 
