@@ -18,7 +18,7 @@
   ],
   "require": {
     "php": ">=7.2.0",
-    "bkwtools/websocket": "^1.0.5"
+    "bkwatch/websocket": "^2.0.0"
   },
   "require-dev": {
     "phan/phan": "^2.2",
