@@ -1,6 +1,6 @@
 <?php
 
-namespace JSzczypk\WampSyncClient;
+namespace BKWTools\WampSyncClient;
 
 class Exception extends \Exception
 {
