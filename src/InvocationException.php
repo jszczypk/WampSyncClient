@@ -14,7 +14,7 @@ class InvocationException extends Exception
     /** @var array<string,mixed> */
     protected $argumentsKw;
 
-    public function __construct(string $uri, array $arguments = [], array $argumentsKw = [], array $details = null)
+    public function __construct(string $uri, array $arguments = [], array $argumentsKw = [], ?array $details = null)
     {
 
         if (count($arguments) == 1 && is_string($arguments[0])) {
