@@ -42,7 +42,7 @@ class Client
     /**
      * @param string|callable(string,string,mixed):string $authSecret
      */
-    public function __construct(string $websocketUri, string $realm, string $authId = null, $authSecret = null)
+    public function __construct(string $websocketUri, string $realm, ?string $authId = null, $authSecret = null)
     {
 
         $this->realm = $realm;
