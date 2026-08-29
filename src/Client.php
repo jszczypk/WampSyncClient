@@ -1,6 +1,6 @@
 <?php
 
-namespace JSzczypk\WampSyncClient;
+namespace BKWTools\WampSyncClient;
 
 class Client
 {
@@ -54,7 +54,7 @@ class Client
             'timeout' => $this->socketTimeout
         ];
 
-        $this->ws = new \JSzczypk\WebSocket\Client($websocketUri, $options);
+        $this->ws = new \BKWTools\WebSocket\Client($websocketUri, $options);
 
         // TODO for now we support only one protocol so we assume this is the only one, later we should read it from websocket protocol negotiations
         $this->protocol = static::PROTOCOL_WAMP_2_JSON;
@@ -117,8 +117,12 @@ class Client
 
     public function __destruct()
     {
-        $this->send(static::MESSAGE_GOODBYE, (object) [], 'wamp.close.close_realm');
-        $msg = $this->receive();
+        try {
+            $this->send(static::MESSAGE_GOODBYE, (object) [], 'wamp.close.close_realm');
+            $msg = $this->receive();
+        } catch (\Throwable $e) {
+            // No-op
+        }
     }
 
     protected function send(int $messageType, ...$params): void
@@ -143,7 +147,7 @@ class Client
             try {
                 $msg = $this->ws->receive();
                 break;
-            } catch (\JSzczypk\WebSocket\ConnectionException $e) {
+            } catch (\BKWTools\WebSocket\ConnectionException $e) {
                 if ($tries == 0) {
                     throw $e;
                 }
@@ -166,7 +170,7 @@ class Client
      * @params array<string,mixed> $argumentsKw
      * @params array{receive_progress?:bool,timeout?:int,disclose_me?:bool} $options
      * TODO we do not support options.runmode == 'partition' and options.rkey == mixed
-     * @return \JSzczypk\WampSyncClient\CallResult
+     * @return \BKWTools\WampSyncClient\CallResult
      */
     public function call(string $uri, array $arguments = [], array $argumentsKw = [], array $options = []): CallResult
     {

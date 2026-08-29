@@ -1,5 +1,5 @@
 {
-  "name": "jszczypk/wampsyncclient",
+  "name": "bkwatch/wampsyncclient",
   "description": "Synchronous (blocking) PHP client for WAMP protocol implementing Caller and Publisher roles",
   "type": "library",
   "keywords": [ "wamp", "rpc" ],
@@ -9,19 +9,28 @@
       "name": "Janusz Szczypka",
       "email": "janusz@smartb2b.eu",
       "role": "Developer"
+    },
+    {
+      "name": "Jonathan Turkanis",
+      "email": "j@coderage.com",
+      "role": "Developer"
     }
   ],
   "require": {
     "php": ">=7.2.0",
-    "jszczypk/websocket": "^1.0.5"
+    "bkwatch/websocket": "^2.0.0"
   },
   "require-dev": {
     "phan/phan": "^2.2",
     "squizlabs/php_codesniffer": "^3.4"
   },
+  "repositories" : {
+    "type" : "vcs",
+    "url" : "git@github.com:BKWatch/WebSocket"
+  },
   "autoload": {
     "psr-4": {
-      "JSzczypk\\WampSyncClient\\": "src/"
+      "BKWTools\\WampSyncClient\\": "src/"
     }
   },
   "archive": {
